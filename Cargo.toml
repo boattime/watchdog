@@ -1,0 +1,30 @@
+[package]
+name = "watchdog"
+version = "0.1.0"
+edition = "2024"
+description = "Real-time screen capture and change detection"
+license = "MIT"
+
+[dependencies]
+thiserror = "2.0.12"
+# macOS dependencies
+[target.'cfg(target_os = "macos")'.dependencies]
+core-graphics = "0.23"
+core-foundation = "0.9"
+
+# Development dependencies
+[dev-dependencies]
+criterion = "0.5"
+image = "0.25.6"
+tempfile = "3.0"
+
+[[example]]
+name = "basic_capture"
+required-features = []
+
+[[bench]]
+name = "capture_benchmarks"
+harness = false
+
+[features]
+default = []
